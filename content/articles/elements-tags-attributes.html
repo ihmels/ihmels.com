@@ -1,0 +1,52 @@
+---
+title: 'Was sind Elemente, Tags und Attribute?'
+kind: article
+published_at: 2013-09-29
+modified_at: 2015-06-25
+summary: 'Viele Webdesigner sprechen, wenn es um SGML (besonders HTML) oder XML geht, von Tags, obwohl sie häufig Elemente meinen. So sprechen sie zum Beispiel von Meta-<em>Tag</em> – richtig wäre aber Meta-<em>Element</em>. Dieser Artikel erläutert die verschiedenen Begriffe.'
+---
+<p>Viele Webdesigner sprechen, wenn es um SGML (besonders HTML) oder XML geht, von Tags, obwohl sie häufig Elemente meinen. So sprechen sie zum Beispiel von Meta-<em>Tag</em> – richtig wäre aber Meta-<em>Element</em>. Dieser Artikel erläutert die verschiedenen Begriffe.</p>
+<pre><code>&lt;foo bar="baz"&gt;qux&lt;/foo&gt;</code></pre>
+<p>Im obigen Beispiel ist ein Element mit der Bezeichnung <code>foo</code> zu sehen. Es besitzt den öffnenden Tag (<em>Starttag</em>) <code>&lt;foo bar="baz"&gt;</code>, den Elementinhalt <code>qux</code> und den schließenden Tag (<em>Endtag</em>) <code>&lt;/foo&gt;</code>. Im Starttag befindet sich das Attribut <code>bar</code> mit dem Attributswert <code>baz</code>.</p>
+<p>Anders dargestellt:</p>
+<table>
+	<tr>
+		<th scope="col">Bezeichnung</th>
+		<th scope="col">SGML-/HTML-/XML-Code</th>
+	</tr>
+	<tr>
+		<td>Element</td>
+		<td><code>&lt;foo bar="baz"&gt;qux&lt;/foo&gt;</code></td>
+	</tr>
+	<tr>
+		<td>Elementname</td>
+		<td><code>foo</code></td>
+	</tr>
+	<tr>
+		<td>Starttag</td>
+		<td><code>&lt;foo bar="baz"&gt;</code></td>
+	</tr>
+	<tr>
+		<td>Endtag</td>
+		<td><code>&lt;/foo&gt;</code></td>
+	</tr>
+	<tr>
+		<td>Elementinhalt</td>
+		<td><code>qux</code></td>
+	</tr>
+	<tr>
+		<td>Attribut</td>
+		<td><code>bar="baz"</code></td>
+	</tr>
+	<tr>
+		<td>Attributsname</td>
+		<td><code>bar</code></td>
+	</tr>
+	<tr>
+		<td>Attributswert</td>
+		<td><code>baz</code></td>
+	</tr>
+</table>
+<p>Ein konkretes Beispiel könnte so aussehen:</p>
+<pre><code>&lt;time datetime="2012-12-21"&gt;21. Dezember 2012&lt;/time&gt;</code></pre>
+<p>Hier ist ein <code>time</code>-Element zu sehen, wobei der Elementinhalt das Datum als Text und das Attribut <code>datetime</code> das Datum nach <cite><a href="http://de.wikipedia.org/wiki/ISO_8601">ISO 8601</a></cite> enthält.</p>

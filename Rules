@@ -1,0 +1,97 @@
+#!/usr/bin/env ruby
+
+# Preprocessing
+
+preprocess do
+  convert_dates
+  set_modified_at
+  hide_items
+end
+
+# Assets
+
+passthrough '/setup/**/*'
+passthrough '/media/**/*'
+
+# Articles
+
+compile '/articles/**/*' do
+  layout '/article.*'
+  layout '/default.*'
+end
+
+# Indexes
+
+compile '/indexes/**/*' do
+  layout '/page.*'
+  layout '/default.*'
+end
+
+# Index
+
+compile '/index.*' do
+  filter :erb, :trim_mode => '<>'
+  layout '/default.*'
+end
+
+route '/index.*' do
+  '/index.html'
+end
+
+# Publications atom feed
+
+compile '/publications.*' do
+  filter :erb, :trim_mode => '<>'
+end
+
+# Sitemap
+
+compile '/sitemap.*' do
+  filter :erb, :trim_mode => '<>'
+end
+
+# 404 error page
+
+compile '/404.*' do
+  filter :erb
+  layout '/page.*'
+  layout '/default.*'
+end
+
+route '/404.*' do
+  '/404.html'
+end
+
+# .htaccess
+
+route '/htaccess.*' do
+  '/.htaccess'
+end
+
+# robots.txt
+
+compile '/robots.*' do
+  filter :erb
+end
+
+# Fallback
+
+compile '/**/*.html' do
+  layout '/page.*'
+  layout '/default.*'
+end
+
+compile '/**/*' do
+end
+
+route '/**/*.html' do
+  item.identifier.without_ext + '/index.html'
+end
+
+route '/**/*' do
+  item.identifier.to_s
+end
+
+# Layouts
+
+layout '/**/*', :erb, :trim_mode => '<>'

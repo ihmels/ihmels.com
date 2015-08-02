@@ -1,0 +1,33 @@
+---
+is_hidden: true
+---
+AddType application/atom+xml .atom
+AddType application/javascript .js
+AddType image/svg+xml .svg
+
+ErrorDocument 404 /404.html
+
+# Setting default encoding to UTF-8
+AddDefaultCharset UTF-8
+AddCharset UTF-8 .txt .html .css .xml .atom .js .svg
+
+RewriteEngine On
+
+# Remove www and ensure https
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} !=ihmels.com [NC]
+RewriteRule ^(.*) https://ihmels.com/$1 [NS,L,R=permanent]
+
+# Use modified time and file size for ETag generation
+FileETag MTime Size
+
+# Enable compression
+SetOutputFilter DEFLATE
+AddOutputFilterByType DEFLATE text/html text/plain text/css application/xml application/atom+xml application/javascript image/svg+xml
+
+# Set Expires and Cache-Control headers
+ExpiresActive On
+ExpiresByType application/javascript A604800
+ExpiresByType text/css A86400
+ExpiresByType image/svg+xml A604800
+ExpiresByType image/png A604800

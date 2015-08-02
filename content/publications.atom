@@ -1,0 +1,29 @@
+---
+title: 'Yannick Ihmels: Publikationen'
+author:
+  name: 'Yannick Ihmels'
+  email: 'yannick@ihmels.com'
+is_hidden: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="de" xml:base="<%= @config[:base_url] + @item.path %>">
+	<id><%= @config[:base_url] %>/</id>
+	<title><%= @item[:title] %></title>
+	<updated><%= @item[:modified_at].xmlschema %></updated>
+	<author>
+		<name><%= @item[:author][:name] %></name>
+		<email><%= @item[:author][:email] %></email>
+	</author>
+	<link rel="self" href="<%= @item.path %>" />
+	<link rel="alternate" href="<%= @items['/index.*'].path %>" />
+<% latest_publications.each do |item| %>
+	<entry>
+		<id><%= tag_uri_for(item) %></id>
+		<title><%= item[:title] %></title>
+		<updated><%= item[:modified_at].xmlschema %></updated>
+		<published><%= item[:published_at].xmlschema %></published>
+		<link rel="alternate" href="<%= item.path %>" />
+		<summary type="html"><%=h item[:summary] %></summary>
+	</entry>
+<% end %>
+</feed>

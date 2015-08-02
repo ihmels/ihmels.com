@@ -1,0 +1,14 @@
+de:
+  month_names: &month_names [~, Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember]
+  date:
+    formats:
+      default: '%-d. %B %Y'
+      short: '%Y-%m-%d'
+    month_names: *month_names
+  time:
+    formats:
+      default: '%-d. %B %Y %H:%M'
+      short: '%Y-%m-%d %H:%M'
+    month_names: *month_names
+  article: 'Artikel'
+  index: 'Index'

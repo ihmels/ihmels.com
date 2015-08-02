@@ -1,0 +1,23 @@
+@media screen, projection, print {
+	#index-20150625 table th {
+		width: 24%;
+	}
+
+	#index-20150625 table th + th {
+		width: 24%;
+	}
+
+	#index-20150625 table th + th + th {
+		width: 38%;
+	}
+
+	#index-20150625 table th + th + th + th {
+		width: 14%;
+	}
+}
+
+@media screen, projection {
+	html[id|="index"] body {
+		max-width: 960px;
+	}
+}

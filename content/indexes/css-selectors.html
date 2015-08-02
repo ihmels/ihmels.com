@@ -1,0 +1,293 @@
+---
+title: 'Übersicht über CSS-Selektoren'
+kind: index
+published_at: 2015-06-25
+use_css_lib: true
+summary: 'Ein fortlaufend aktualisierter Index mit CSS-Selektoren.'
+---
+<p>Diese Übersicht enthält eine fortlaufend aktualisierte Liste aller CSS-Selektoren, die Teil von Spezifikationen sind, die den W3C-Status <span lang="en">Recommendation</span> haben.
+<ul>
+	<li><a href="#simple-selectors">Einfache Selektoren</a></li>
+	<li><a href="#pseudo-elements">Pseudo-Elemente</a></li>
+	<li><a href="#combinators">Kombinatoren</a></li>
+</ul>
+<h2 id="simple-selectors">Einfache Selektoren</h2>
+<table>
+	<thead>
+		<tr>
+			<th scope="col">Beschreibung</th>
+			<th scope="col">Syntax</th>
+			<th scope="col">Bedeutung</th>
+			<th scope="col">Zuerst definiert in CSS-Level</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><a href="http://www.w3.org/TR/css3-selectors/#universal-selector">Universalselektor</a></td>
+			<td><code>*</code></td>
+			<td>Selektiert jedes Element.</td>
+			<td>2</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.w3.org/TR/css3-selectors/#type-selectors">Typselektor</a></td>
+			<td><code>foo</code></td>
+			<td>Selektiert jedes Element vom Typ <code>foo</code>.</td>
+			<td>1</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.w3.org/TR/css3-selectors/#class-html">Klassenselektor</a></td>
+			<td><code>.foo</code></td>
+			<td>Selektiert jedes Element mit der Klasse <code>foo</code>. (Äquivalent zu <code>[class~=foo]</code>.)</td>
+			<td>1</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.w3.org/TR/css3-selectors/#id-selectors">ID-Selektor</a></td>
+			<td><code>#foo</code></td>
+			<td>Selektiert jedes Element mit der ID <code>foo</code>. (Äquivalent zu <code>[id=foo]</code>.)</td>
+			<td>1</td>
+		</tr>
+		<tr>
+			<td rowspan="7"><a href="http://www.w3.org/TR/css3-selectors/#attribute-selectors">Attributselektor</a></td>
+			<td><code>[foo]</code></td>
+			<td>Selektiert jedes Element, bei dem das Attribut <code>foo</code> gesetzt ist (unabhängig vom Wert).</td>
+			<td>2</td>
+		</tr>
+		<tr>
+			<td><code>[foo=bar]</code></td>
+			<td>Selektiert jedes Element mit dem Attribut <code>foo</code>, dessen Wert genau <code>bar</code> ist.</td>
+			<td>2</td>
+		</tr>
+		<tr>
+			<td><code>[foo~=bar]</code></td>
+			<td>Selektiert jedes Element mit dem Attribut <code>foo</code>, das eine Liste von durch Leerzeichen getrennten Werten enthält, von denen ein Wert genau <code>bar</code> ist (z.&nbsp;B. <code>bar</code> oder <code>bar baz</code>, aber nicht <code>barbaz</code>).</td>
+			<td>2</td>
+		</tr>
+		<tr>
+			<td><code>[foo^=bar]</code></td>
+			<td>Selektiert jedes Element mit dem Attribut <code>foo</code>, dessen Wert genau mit <code>bar</code> beginnt.</td>
+			<td>3</td>
+		</tr>
+		<tr>
+			<td><code>[foo$=bar]</code></td>
+			<td>Selektiert jedes Element mit dem Attribut <code>foo</code>, dessen Wert genau mit <code>bar</code> endet.</td>
+			<td>3</td>
+		</tr>
+		<tr>
+			<td><code>[foo*=bar]</code></td>
+			<td>Selektiert jedes Element mit dem Attribut <code>foo</code>, dessen Wert die Zeichenfolge <code>bar</code> enthält.</td>
+			<td>3</td>
+		</tr>
+		<tr>
+			<td><code>[foo|=bar]</code></td>
+			<td>Selektiert jedes Element mit dem Attribut <code>foo</code>, das eine Liste von durch Bindestriche getrennten Werten enthält, die mit <code>bar</code> beginnt (z.&nbsp;B. <code>bar</code> oder <code>bar-baz</code>).</td>
+			<td>2</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.w3.org/TR/css3-selectors/#root-pseudo">Pseudo-Klasse :root</a></td>
+			<td><code>foo:root</code></td>
+			<td>Selektiert das Wurzel-Element eines Dokuments, in dem sich <code>foo</code> befindet. In HTML ist es immer das <code>html</code>-Element.</td>
+			<td>3</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.w3.org/TR/css3-selectors/#nth-child-pseudo">Pseudo-Klasse :nth-child()</a></td>
+			<td><code>foo:nth-child(a)</code></td>
+			<td>Selektiert das Element <code>foo</code>, das das <var>a</var>-te Kindelement eines Elternelements ist.</td>
+			<td>3</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.w3.org/TR/css3-selectors/#nth-last-child-pseudo">Pseudo-Klasse :nth-last-child()</a></td>
+			<td><code>foo:nth-last-child(a)</code></td>
+			<td>Selektiert das Element <code>foo</code>, das das <var>a</var>-te Kindelement eines Elternelements ist, wobei die Zählung beim letzten Element beginnt.</td>
+			<td>3</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.w3.org/TR/css3-selectors/#first-child-pseudo">Pseudo-Klasse :first-child</a></td>
+			<td><code>foo:first-child</code></td>
+			<td>Selektiert das Element <code>foo</code>, das das erste Kindelement eines Elternelements ist. (Äquivalent zu <code>foo:nth-child(1)</code>.)</td>
+			<td>2</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.w3.org/TR/css3-selectors/#last-child-pseudo">Pseudo-Klasse :last-child</a></td>
+			<td><code>foo:last-child</code></td>
+			<td>Selektiert das Element <code>foo</code>, das das letzte Kindelement eines Elternelements ist. (Äquivalent zu <code>foo:nth-last-child(1)</code>.)</td>
+			<td>3</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.w3.org/TR/css3-selectors/#only-child-pseudo">Pseudo-Klasse :only-child</a></td>
+			<td><code>foo:only-child</code></td>
+			<td>Selektiert das Element <code>foo</code>, das das einzige Kindelement eines Elternelements ist. (Äquivalent zu <code>:first-child:last-child</code>.)</td>
+			<td>3</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.w3.org/TR/css3-selectors/#nth-of-type-pseudo">Pseudo-Klasse :nth-of-type()</a></td>
+			<td><code>foo:nth-of-type(a)</code></td>
+			<td>Selektiert das <var>a</var>-te Element vom Typ <code>foo</code>, das ein Kindelement eines Elternelements ist.</td>
+			<td>3</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.w3.org/TR/css3-selectors/#nth-last-of-type-pseudo">Pseudo-Klasse :nth-last-of-type()</a></td>
+			<td><code>foo:nth-last-of-type(a)</code></td>
+			<td>Selektiert das <var>a</var>-te Element vom Typ <code>foo</code>, das ein Kindelement eines Elternelements ist, wobei die Zählung beim letzten Element dieses Typs beginnt.</td>
+			<td>3</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.w3.org/TR/css3-selectors/#first-of-type-pseudo">Pseudo-Klasse :first-of-type</a></td>
+			<td><code>foo:first-of-type</code></td>
+			<td>Selektiert das erste Element vom Typ <code>foo</code>, das ein Kindelement eines Elternelements ist. (Äquivalent zu <code>foo:nth-of-type(1)</code>.)</td>
+			<td>3</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.w3.org/TR/css3-selectors/#last-of-type-pseudo">Pseudo-Klasse :last-of-type</a></td>
+			<td><code>foo:last-of-type</code></td>
+			<td>Selektiert das letzte Element vom Typ <code>foo</code>, das ein Kindelement eines Elternelements ist. (Äquivalent zu <code>foo:nth-last-of-type(1)</code>.)</td>
+			<td>3</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.w3.org/TR/css3-selectors/#only-of-type-pseudo">Pseudo-Klasse :only-of-type</a></td>
+			<td><code>foo:only-of-type</code></td>
+			<td>Selektiert das Element <code>foo</code>, das das einzige Kindelement vom Typ <code>foo</code> eines Elternelements ist. (Äquivalent zu <code>:first-of-type:last-of-type</code>.)</td>
+			<td>3</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.w3.org/TR/css3-selectors/#empty-pseudo">Pseudo-Klasse :empty</a></td>
+			<td><code>foo:empty</code></td>
+			<td>Selektiert jedes Element <code>foo</code>, das keine Kindelemente (einschließlich Text) besitzt.</td>
+			<td>3</td>
+		</tr>
+		<tr>
+			<td rowspan="2"><a href="http://www.w3.org/TR/css3-selectors/#the-link-pseudo-classes-link-and-visited">Pseudo-Klassen :link und :visited</a></td>
+			<td><code>foo:link</code></td>
+			<td>Selektiert jedes Element <code>foo</code>, das ein Verweis ist, der noch nicht besucht wurde.</td>
+			<td>1</td>
+		</tr>
+		<tr>
+			<td><code>foo:visited</code></td>
+			<td>Selektiert jedes Element <code>foo</code>, das ein Verweis ist, der besucht wurde.</td>
+			<td>1</td>
+		</tr>
+		<tr>
+			<td rowspan="3"><a href="http://www.w3.org/TR/css3-selectors/#the-user-action-pseudo-classes-hover-act">Pseudo-Klassen :hover, :active und :focus</a></td>
+			<td><code>foo:hover</code></td>
+			<td>Selektiert das Element <code>foo</code>, auf das der Benutzer gerade zeigt.</td>
+			<td>2</td>
+		</tr>
+		<tr>
+			<td><code>foo:active</code></td>
+			<td>Selektiert das Element <code>foo</code>, das gerade durch den Benutzer aktiviert wird, z.&nbsp;B. in der Zeit zwischen dem Drücken und dem Loselassen der Maustaste.</td>
+			<td>1</td>
+		</tr>
+		<tr>
+			<td><code>foo:focus</code></td>
+			<td>Selektiert das Element <code>foo</code>, das gerade den Fokus hat, z.&nbsp;B. durch die Tabulator-Taste.</td>
+			<td>2</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.w3.org/TR/css3-selectors/#target-pseudo">Pseudo-Klasse :target</a></td>
+			<td><code>foo:target</code></td>
+			<td>Selektiert das Element <code>foo</code>, das Ziel eines Verweises ist.</td>
+			<td>3</td>
+		</tr>
+		<tr>
+			<td rowspan="2"><a href="http://www.w3.org/TR/css3-selectors/#enableddisabled">Pseudo-Klassen :enabled, :disabled</a></td>
+			<td><code>foo:enabled</code></td>
+			<td>Selektiert jedes Element <code>foo</code>, das aktiviert ist.</td>
+			<td>3</td>
+		</tr>
+		<tr>
+			<td><code>foo:disabled</code></td>
+			<td>Selektiert jedes Element <code>foo</code>, das deaktiviert ist.</td>
+			<td>3</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.w3.org/TR/css3-selectors/#checked">Pseudo-Klasse :checked</a></td>
+			<td><code>foo:checked</code></td>
+			<td>Selektiert jedes Element <code>foo</code>, das gerade markiert ist. In HTML sind das Radiobutton- und Checkbox-Elemente.</td>
+			<td>3</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.w3.org/TR/css3-selectors/#lang-pseudo">Pseudo-Klasse :lang()</a></td>
+			<td><code>foo:lang(bar)</code></td>
+			<td>Selektiert jedes Element <code>foo</code>, das in der Sprache <code>bar</code> ist. (<code>:lang(bar)</code> ist nicht äquivalent zu <code>[lang|=bar]</code>!)</td>
+			<td>2</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.w3.org/TR/css3-selectors/#negation">Pseudo-Klasse :not()</a></td>
+			<td><code>foo:not(bar)</code></td>
+			<td>Selektiert jedes Element <code>foo</code>, auf das der einfache Selektor (außer <code>:not()</code> selbst) <code>bar</code> nicht zutrifft. (<code>:not(:not(bar))</code> ist demnach nicht erlaubt.)</td>
+			<td>3</td>
+		</tr>
+	</tbody>
+</table>
+<h2 id="pseudo-elements">Pseudo-Elemente</h2>
+<table>
+	<thead>
+		<tr>
+			<th scope="col">Beschreibung</th>
+			<th scope="col">Syntax</th>
+			<th scope="col">Bedeutung</th>
+			<th scope="col">Zuerst definiert in CSS-Level</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><a href="http://www.w3.org/TR/css3-selectors/#first-line">Pseudo-Element ::first-line</a></td>
+			<td><code>foo::first-line</code></td>
+			<td>Selektiert die erste formatierte Zeile eines Textes eines Elements <code>foo</code>.</td>
+			<td>1</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.w3.org/TR/css3-selectors/#first-letter">Pseudo-Element ::first-letter</a></td>
+			<td><code>foo::first-letter</code></td>
+			<td>Selektiert den ersten formatierten Buchstaben eines Textes eines Elements <code>foo</code>.</td>
+			<td>1</td>
+		</tr>
+		<tr>
+			<td rowspan="2"><a href="http://www.w3.org/TR/css3-selectors/#gen-content">Pseudo-Elemente ::before und ::after</a></td>
+			<td><code>foo::before</code></td>
+			<td>Erzeugt ein Element vor einem Element <code>foo</code> und selektiert es.</td>
+			<td>2</td>
+		</tr>
+		<tr>
+			<td><code>foo::after</code></td>
+			<td>Erzeugt ein Element nach einem Element <code>foo</code> und selektiert es.</td>
+			<td>2</td>
+		</tr>
+	</tbody>
+</table>
+<h2 id="combinators">Kombinatoren</h2>
+<table>
+	<thead>
+		<tr>
+			<th scope="col">Beschreibung</th>
+			<th scope="col">Syntax</th>
+			<th scope="col">Bedeutung</th>
+			<th scope="col">Zuerst definiert in CSS-Level</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><a href="http://www.w3.org/TR/css3-selectors/#descendant-combinators">Nachfahrenkombinator</a></td>
+			<td><code>foo bar</code></td>
+			<td>Selektiert alle Elemente <code>bar</code>, die Nachfahren vom Element <code>foo</code> sind.</td>
+			<td>1</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.w3.org/TR/css3-selectors/#child-combinators">Kindkombinator</a></td>
+			<td><code>foo &gt; bar</code></td>
+			<td>Selektiert alle Elemente <code>bar</code>, die ein Kind des Elements <code>foo</code> sind.</td>
+			<td>2</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.w3.org/TR/css3-selectors/#adjacent-sibling-combinators">Geschwisterkombinator (adjazent)</a></td>
+			<td><code>foo + bar</code></td>
+			<td>Selektiert alle Elemente <code>bar</code>, die einen unmittelbaren Vorgänger <code>foo</code> auf gleicher Ebene haben.</td>
+			<td>2</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.w3.org/TR/css3-selectors/#general-sibling-combinators">Geschwisterkombinator (allgemein)</a></td>
+			<td><code>foo ~ bar</code></td>
+			<td>Selektiert alle Elemente <code>bar</code>, die einen mittelbaren Vorgänger <code>foo</code> auf gleicher Ebene haben.</td>
+			<td>3</td>
+		</tr>
+	</tbody>
+</table>

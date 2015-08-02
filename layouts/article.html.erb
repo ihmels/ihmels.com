@@ -1,0 +1,3 @@
+<h1><%= @item[:title] %></h1>
+<%= yield %>
+<p class="meta">Artikel vom <time datetime="<%= date_iso8601(@item[:published_at]) %>"><%= date_pretty(@item[:published_at]) %></time><% if @item[:modified_at] %> (aktualisiert am <time datetime="<%= date_iso8601(@item[:modified_at]) %>"><%= date_pretty(@item[:modified_at]) %></time>)<% end %></p>

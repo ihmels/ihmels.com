@@ -1,0 +1,14 @@
+---
+title: Yannick Ihmels
+nav_title: Startseite
+---
+<h1>Publikationen</h1>
+<div id="index">
+<% latest_publications.each do |item| %>
+	<article>
+		<h2><a href="<%= item.path %>"><%= item[:title] %></a></h2>
+		<p><%= item[:summary] %><p>
+		<p class="meta"><%= translate(item[:kind]) %> vom <time datetime="<%= date_iso8601(item[:published_at]) %>"><%= date_pretty(item[:published_at]) %></time></p>
+	</article>
+<% end %>
+</div>

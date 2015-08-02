@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="de"<%= html_id_for(@item) if @item[:use_css_lib] %>>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1, width=device-width">
+		<title><%= h(@item[:title]) %></title>
+		<link rel="icon" href="<%= @items['/media/favicon.png'].path %>">
+		<link rel="stylesheet" href="<%= @items['/setup/default.css'].path %>">
+<% if @item[:use_css_lib] %>
+		<link rel="stylesheet" href="<%= @items['/setup/library.css'].path %>">
+<% end %>
+		<link rel="alternate" href="<%= @items['/publications.*'].path %>" type="application/atom+xml" title="Publikationen">
+	</head>
+	<body>
+		<header><%= link_to_unless_active(%(<img src="#{@items['/media/logo.svg'].path}" alt="Yannick Ihmels">), @items['/index.*']) %></header>
+		<nav>
+			<ul>
+				<li><%= nav_link(@items['/index.*']) %></li>
+				<li><%= nav_link(@items['/contact.*']) %></li>
+			</ul>
+		</nav>
+		<main>
+<%# Because I want clean indented markup %>
+<%= indent(yield, 3) %>
+		</main>
+<% unless @item[:modified_at].nil? %>
+		<footer>
+			<p>Stand: <time datetime="<%= date_iso8601(@item[:modified_at]) %>"><%= date_pretty(@item[:modified_at]) %></time></p>
+		</footer>
+<% end %>
+	</body>
+</html>
