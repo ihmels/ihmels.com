@@ -41,5 +41,5 @@ def date_pretty(datetime)
 end
 
 def date_iso8601(datetime)
-    datetime.strftime('%F')
+  datetime.strftime('%F')
 end

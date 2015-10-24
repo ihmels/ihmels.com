@@ -5,7 +5,7 @@ def publications
 end
 
 def sorted_publications
-	publications.sort_by { |item| item[:published_at] }.reverse
+  publications.sort_by { |item| item[:published_at] }.reverse
 end
 
 def latest_publications
