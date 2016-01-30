@@ -144,11 +144,11 @@
 	}
 
 	a {
-		color: #a30000;
+		color: #c00;
 	}
 
 	a:visited {
-		color: #820000;
+		color: #a30000;
 	}
 
 	a[href^="#"] {
