@@ -16,6 +16,7 @@ is_hidden: true
 	</author>
 	<link rel="self" href="<%= @item.path %>" />
 	<link rel="alternate" href="<%= @items['/index.*'].path %>" />
+	<logo>/media/logo.svg</logo>
 <% latest_publications.each do |item| %>
 	<entry>
 		<id><%= tag_uri_for(item) %></id>
