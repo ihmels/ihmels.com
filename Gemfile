@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 gem 'i18n'
-gem 'nanoc', '~> 4.0.2'
+gem 'nanoc', '~> 4.1'
 gem 'rake'
 
 
