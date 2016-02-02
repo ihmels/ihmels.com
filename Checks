@@ -7,6 +7,8 @@ check :no_unprocessed_erb do
 end
 
 deploy_check :no_unprocessed_erb
+deploy_check :html
+deploy_check :css
 deploy_check :internal_links
 deploy_check :external_links
 deploy_check :mixed_content
